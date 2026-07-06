@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VAS Agricultural Supply — Homepage Redesign Mockup</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.44.0/tabler-icons.min.css">
+<style>
+  :root{
+    --green-950:#173404; --green-900:#27500A; --green-700:#3B6D11; --green-500:#639922;
+    --green-300:#97C459; --green-100:#C0DD97; --green-50:#EAF3DE;
+    --ink:#2C2C2A; --ink-soft:#5F5E5A; --ink-muted:#888780; --ink-faint:#B4B2A9;
+    --paper:#ffffff; --paper-warm:#F7F6F1; --paper-tint:#F1EFE8; --line:#E5E3DA;
+    --amber:#BA7517; --amber-bg:#FAEEDA; --amber-ink:#854F0B;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Segoe UI', system-ui, -apple-system, Arial, sans-serif; background:#EAE8E0; color:var(--ink); line-height:1.5;}
+  .page{max-width:1100px; margin:32px auto; background:var(--paper); border-radius:14px; overflow:hidden; box-shadow:0 6px 30px rgba(0,0,0,0.12);}
+  .mockup-label{max-width:1100px; margin:24px auto 0; padding:0 8px; font-size:13px; color:#6b6a64; text-align:center;}
+  i.ti{vertical-align:-2px;}
+  .ph{position:relative; overflow:hidden;}
+  .ph img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+
+  .topbar{background:var(--green-900); padding:16px 32px; display:flex; align-items:center; gap:20px; flex-wrap:wrap;}
+  .logo{display:flex; align-items:center; gap:12px;}
+  .logo-box{background:#fff; border-radius:10px; padding:5px 12px; display:flex; align-items:center; height:52px;}
+  .logo-box img{height:42px; width:auto; display:block;}
+  .logo-mark{width:42px; height:42px; border-radius:10px; background:var(--green-300); display:none; align-items:center; justify-content:center; font-size:24px; color:var(--green-950);}
+  .logo-text{display:none;}
+  .topbar .spacer{flex:1;}
+  .contact{text-align:right;}
+  .contact .phone{font-size:14px; font-weight:600; color:var(--green-50);}
+  .contact .locs{font-size:12px; color:var(--green-100);}
+  .btn{display:inline-block; border-radius:9px; font-weight:600; font-size:14px; padding:11px 20px; cursor:pointer; text-decoration:none;}
+  .btn-lime{background:var(--green-300); color:var(--green-950);}
+  .btn-solid{background:var(--green-700); color:var(--green-50);}
+  .btn-outline{border:1.5px solid var(--green-300); color:var(--green-700); background:transparent;}
+
+  .navbar{background:var(--green-700); padding:11px 32px; display:flex; gap:24px; flex-wrap:wrap;}
+  .navbar a{font-size:14px; color:var(--green-100); text-decoration:none;}
+  .navbar a.primary{color:var(--green-50); font-weight:600;}
+  .navbar a:hover{color:#fff;}
+
+  .hero{display:flex; gap:32px; padding:48px 32px; align-items:center; background:var(--paper);}
+  .hero-copy{flex:1.15;}
+  .pill{display:inline-block; font-size:12px; font-weight:600; color:var(--green-700); background:var(--green-50); padding:5px 14px; border-radius:24px; margin-bottom:14px;}
+  .hero h1{font-size:38px; font-weight:700; color:var(--green-950); line-height:1.18; margin-bottom:12px; letter-spacing:-0.5px;}
+  .hero p{font-size:16px; color:var(--ink-soft); margin-bottom:22px; max-width:46ch;}
+  .hero-actions{display:flex; gap:12px; flex-wrap:wrap;}
+  .hero-img{flex:1; min-height:300px; background:var(--green-50); border-radius:16px;}
+
+  section{padding:44px 32px;}
+  .sec-warm{background:var(--paper-warm);}
+  .sec-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:20px; flex-wrap:wrap;}
+  h2{font-size:24px; font-weight:700; color:var(--green-950); letter-spacing:-0.3px;}
+  .sec-link{font-size:14px; font-weight:600; color:var(--green-700); text-decoration:none;}
+
+  .searchbar{display:flex; align-items:center; background:#fff; border:1.5px solid var(--green-300); border-radius:12px; padding:6px 6px 6px 18px; gap:12px; margin-bottom:24px; max-width:720px;}
+  .searchbar input{flex:1; border:none; outline:none; font-size:15px; color:var(--ink); background:transparent; padding:10px 0; min-width:0;}
+  .searchbar input::placeholder{color:var(--ink-muted);}
+  .searchbar .ti-search{font-size:18px; color:var(--green-700);}
+  .searchbar button{border:none; background:var(--green-700); color:var(--green-50); font-size:14px; font-weight:600; padding:11px 22px; border-radius:9px; cursor:pointer;}
+
+  .cat-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(190px,1fr)); gap:14px;}
+  .cat-card{background:#fff; border:1px solid var(--line); border-radius:12px; padding:22px 14px; text-align:center; transition:border-color .15s, transform .15s; cursor:pointer;}
+  .cat-card:hover{border-color:var(--green-300); transform:translateY(-2px);}
+  .cat-card i{font-size:28px; color:var(--green-700);}
+  .cat-card p{margin-top:10px; font-size:14px; font-weight:600; color:var(--ink);}
+
+  .prod-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(210px,1fr)); gap:14px;}
+  .prod-card{border:1px solid var(--line); border-radius:12px; overflow:hidden; background:#fff;}
+  .prod-img{height:150px; background:var(--paper-tint); display:flex; align-items:center; justify-content:center; color:var(--ink-faint); font-size:28px;}
+  .prod-body{padding:14px;}
+  .prod-body .name{font-size:14px; font-weight:600; color:var(--ink); line-height:1.35;}
+  .prod-body .price{margin-top:6px; font-size:14px; font-weight:600; color:var(--green-700);}
+  .prod-body .price span{color:var(--ink-muted); font-weight:400;}
+  .prod-note{margin-top:16px; font-size:13px; color:var(--ink-muted);}
+
+  .about{display:flex; gap:32px; align-items:center;}
+  .about-img{flex:1; min-height:270px; background:#D3D1C7; border-radius:16px;}
+  .about-copy{flex:1.1;}
+  .about-copy p{font-size:15px; color:var(--ink-soft); margin:10px 0 20px; max-width:52ch;}
+  .stats{display:flex; gap:28px;}
+  .stat .num{font-size:26px; font-weight:700; color:var(--green-700);}
+  .stat .lbl{font-size:13px; color:var(--ink-muted);}
+
+  .ig-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr)); gap:14px;}
+  .ig-card{border:1px solid var(--line); border-radius:12px; overflow:hidden; background:#fff;}
+  .ig-img{height:210px; background:var(--green-50); display:flex; align-items:center; justify-content:center; color:var(--green-500); font-size:30px;}
+  .ig-body{padding:14px;}
+  .ig-body .cap{font-size:13px; color:var(--ink-soft); line-height:1.5;}
+  .ig-body .meta{margin-top:10px; font-size:13px; color:var(--ink-faint);}
+  .handle{font-size:14px; font-weight:600; color:var(--green-700); text-decoration:none;}
+
+  .rev-badge{display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:600; color:var(--amber-ink); background:var(--amber-bg); padding:6px 14px; border-radius:24px;}
+  .rev-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr)); gap:14px;}
+  .rev-card{background:#fff; border:1px solid var(--line); border-radius:12px; padding:18px;}
+  .stars{color:var(--amber); font-size:15px; letter-spacing:2px; margin-bottom:10px;}
+  .rev-card .quote{font-size:13.5px; color:var(--ink-soft); line-height:1.55; margin-bottom:12px;}
+  .rev-card .who{font-size:13px; font-weight:600; color:var(--ink);}
+
+  .brands{border-top:1px solid var(--line); text-align:center;}
+  .brands .cap{font-size:14px; color:var(--ink-muted); margin-bottom:20px;}
+  .brand-row{display:flex; gap:28px; justify-content:center; flex-wrap:wrap; align-items:center;}
+  .brand-row img{height:56px; width:auto; max-width:150px; object-fit:contain;}
+
+  footer{background:var(--green-900); padding:28px 32px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;}
+  footer .fname{font-size:15px; font-weight:600; color:var(--green-50);}
+  footer .faddr{font-size:13px; color:var(--green-100); margin-top:2px;}
+
+  @media (max-width:760px){
+    .page{margin:12px; border-radius:12px;}
+    .mockup-label{padding:0 16px;}
+    .topbar{padding:14px 18px; gap:12px;}
+    .topbar .btn-lime{width:100%; text-align:center; order:5;}
+    .contact{text-align:left;}
+    .navbar{padding:10px 18px; gap:14px; overflow-x:auto; flex-wrap:nowrap; white-space:nowrap;}
+    .hero, .about{flex-direction:column; padding:32px 18px;}
+    .hero h1{font-size:28px;}
+    .hero p{font-size:15px;}
+    .hero-img{min-height:220px; width:100%;}
+    .about-img{min-height:220px; width:100%;}
+    section{padding:32px 18px;}
+    h2{font-size:20px;}
+    .searchbar{padding:4px 4px 4px 14px;}
+    .searchbar input{font-size:14px;}
+    .searchbar button{padding:10px 16px;}
+    .cat-grid{grid-template-columns:repeat(2, 1fr); gap:10px;}
+    .cat-card{padding:16px 10px;}
+    .prod-grid, .ig-grid{grid-template-columns:1fr 1fr; gap:10px;}
+    .rev-grid{grid-template-columns:1fr;}
+    .brand-row{gap:18px;}
+    .brand-row img{height:42px;}
+    .stats{gap:20px;}
+    footer{padding:22px 18px;}
+    footer .btn-lime{width:100%; text-align:center;}
+  }
+  @media (max-width:430px){
+    .prod-grid, .ig-grid{grid-template-columns:1fr;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .cat-card{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<p class="mockup-label">Homepage redesign concept · VAS Agricultural Supply · Prepared by Rank First Digital Marketing</p>
+
+<div class="page">
+
+  <div class="topbar">
+    <div class="logo">
+      <div class="logo-box">
+        <img src="https://lirp.cdn-website.com/455354d3/dms3rep/multi/opt/Screenshot+2025-10-22+at+6.33.43-PM-1920w.png" alt="VAS Agricultural Supply logo" onerror="this.parentElement.style.display='none'; document.getElementById('logofb').style.display='flex'; document.getElementById('logotxt').style.display='block';">
+      </div>
+      <div class="logo-mark" id="logofb"><i class="ti ti-plant-2"></i></div>
+      <div class="logo-text" id="logotxt">
+        <div style="font-size:17px;font-weight:600;color:var(--green-50);line-height:1.15;">VAS Agricultural</div>
+        <div style="font-size:12px;color:var(--green-100);">Supply · Since 2009</div>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="contact">
+      <div class="phone"><i class="ti ti-phone"></i> (305) 246-4225</div>
+      <div class="locs">Miami · Apopka, FL</div>
+    </div>
+    <a class="btn btn-lime" href="#">Request a quote</a>
+  </div>
+
+  <nav class="navbar">
+    <a class="primary" href="#"><i class="ti ti-menu-2"></i> All categories</a>
+    <a href="#">Crop protection</a>
+    <a href="#">Fertilizers</a>
+    <a href="#">Growing supplies</a>
+    <a href="#">Landscape</a>
+    <a href="#">Pots</a>
+    <a href="#">Tools</a>
+    <a href="#">About us</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-copy">
+      <span class="pill">Family-owned · Serving Florida growers since 2009</span>
+      <h1>Everything your nursery, farm or landscape needs. Under one roof.</h1>
+      <p>Fertilizers, crop protection, containers and pro-grade equipment — with real guidance from people who know your crop.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="#">Browse products</a>
+        <a class="btn btn-outline" href="#">Visit our stores</a>
+      </div>
+    </div>
+    <div class="hero-img ph">
+      <img src="https://lirp.cdn-website.com/md/dmtmpl/e78b466b-5d11-4212-a177-d80ada918f3b/dms3rep/multi/opt/hand-watering-plant-zoom-1920w.jpg" alt="Watering young plants" onerror="this.remove()">
+    </div>
+  </div>
+
+  <section class="sec-warm">
+    <h2 style="margin-bottom:18px;">Shop by category</h2>
+    <div class="searchbar">
+      <i class="ti ti-search"></i>
+      <input type="text" placeholder="Search for a product — fertilizer, pots, sprayers, perlite…">
+      <button>Search</button>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card"><i class="ti ti-shield-check"></i><p>Crop protection</p></div>
+      <div class="cat-card"><i class="ti ti-droplet"></i><p>Fertilizers and nutrition</p></div>
+      <div class="cat-card"><i class="ti ti-seeding"></i><p>Growing supplies</p></div>
+      <div class="cat-card"><i class="ti ti-mountain"></i><p>Landscape material</p></div>
+      <div class="cat-card"><i class="ti ti-flower"></i><p>Pots and containers</p></div>
+      <div class="cat-card"><i class="ti ti-tool"></i><p>Tools and equipment</p></div>
+      <div class="cat-card"><i class="ti ti-helmet"></i><p>Protective equipment</p></div>
+      <div class="cat-card"><i class="ti ti-truck"></i><p>Transport and handling</p></div>
+      <div class="cat-card"><i class="ti ti-bolt"></i><p>Performance enhancers</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Top sellers this month</h2>
+      <a class="sec-link" href="#">See all products <i class="ti ti-arrow-right"></i></a>
+    </div>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <div class="prod-img ph"><i class="ti ti-photo"></i><img src="https://loremflickr.com/480/360/fertilizer,granules?lock=41" alt="Granular fertilizer" onerror="this.remove()"></div>
+        <div class="prod-body"><div class="name">Osmocote Plus 15-9-12</div><div class="price">$XX.XX <span>· in store</span></div></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img ph"><i class="ti ti-photo"></i><img src="https://loremflickr.com/480/360/plant,pots,nursery?lock=17" alt="Nursery pots" onerror="this.remove()"></div>
+        <div class="prod-body"><div class="name">Trade gallon pots x100</div><div class="price">$XX.XX <span>· in store</span></div></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img ph"><i class="ti ti-photo"></i><img src="https://loremflickr.com/480/360/garden,sprayer?lock=23" alt="Backpack sprayer" onerror="this.remove()"></div>
+        <div class="prod-body"><div class="name">Backpack sprayer 4 gal</div><div class="price">$XX.XX <span>· in store</span></div></div>
+      </div>
+      <div class="prod-card">
+        <div class="prod-img ph"><i class="ti ti-photo"></i><img src="https://loremflickr.com/480/360/soil,perlite,potting?lock=8" alt="Horticulture perlite" onerror="this.remove()"></div>
+        <div class="prod-body"><div class="name">Horticulture perlite 4 cf</div><div class="price">$XX.XX <span>· in store</span></div></div>
+      </div>
+    </div>
+    <p class="prod-note">Call or visit us to purchase — our team will have your order ready.</p>
+  </section>
+
+  <section class="sec-warm">
+    <div class="about">
+      <div class="about-img ph">
+        <img src="https://lirp.cdn-website.com/md/dmtmpl/e78b466b-5d11-4212-a177-d80ada918f3b/dms3rep/multi/opt/_Garden_tools_seedlings-1920w.png" alt="Garden tools and seedlings at VAS" onerror="this.remove()">
+      </div>
+      <div class="about-copy">
+        <h2>Family-owned. Grower-obsessed.</h2>
+        <p>Founded by Victor and Kathy Rodriguez, VAS grew from a small local operation into two Florida locations. Here you don't just buy supplies — you leave with advice from people who know your crop.</p>
+        <div class="stats">
+          <div class="stat"><div class="num">15+</div><div class="lbl">years</div></div>
+          <div class="stat"><div class="num">2</div><div class="lbl">locations</div></div>
+          <div class="stat"><div class="num">100%</div><div class="lbl">family-run</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Follow us in the field</h2>
+      <a class="handle" href="https://www.instagram.com/vasagsupply" target="_blank" rel="noopener"><i class="ti ti-brand-instagram"></i> @vasagsupply</a>
+    </div>
+    <div class="ig-grid">
+      <div class="ig-card">
+        <div class="ig-img ph"><i class="ti ti-brand-instagram"></i><img src="https://loremflickr.com/480/420/greenhouse,plants?lock=5" alt="Greenhouse plants" onerror="this.remove()"></div>
+        <div class="ig-body">
+          <p class="cap">"Grow strong, grow smart — the VAS way. Custom-blended fertilizers for South Florida…"</p>
+          <p class="meta"><i class="ti ti-heart"></i> 48 · <i class="ti ti-message-circle"></i> 6</p>
+        </div>
+      </div>
+      <div class="ig-card">
+        <div class="ig-img ph"><i class="ti ti-brand-instagram"></i><img src="https://loremflickr.com/480/420/nursery,garden?lock=32" alt="Nursery" onerror="this.remove()"></div>
+        <div class="ig-body">
+          <p class="cap">"Rain or shine, we're open and ready to help you grow…"</p>
+          <p class="meta"><i class="ti ti-heart"></i> 35 · <i class="ti ti-message-circle"></i> 4</p>
+        </div>
+      </div>
+      <div class="ig-card">
+        <div class="ig-img ph"><i class="ti ti-brand-instagram"></i><img src="https://loremflickr.com/480/420/seedling,soil?lock=14" alt="Seedlings in soil" onerror="this.remove()"></div>
+        <div class="ig-body">
+          <p class="cap">"Horticulture perlite: why the pros use it for drainage and aeration…"</p>
+          <p class="meta"><i class="ti ti-heart"></i> 29 · <i class="ti ti-message-circle"></i> 3</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-warm">
+    <div class="sec-head">
+      <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+        <h2>What growers say about us</h2>
+        <span class="rev-badge"><i class="ti ti-star"></i> 4.7 · 57 Google reviews</span>
+      </div>
+      <a class="sec-link" href="https://www.google.com/search?q=vas+agricultural+supply#lrd=0x88d9e872df4aec57:0x8faef891210e511e,1" target="_blank" rel="noopener">Read all on Google <i class="ti ti-external-link"></i></a>
+    </div>
+    <div class="rev-grid">
+      <div class="rev-card">
+        <div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div>
+        <p class="quote">"The staff is friendly and knowledgeable — they helped me pick exactly what my nursery needed."</p>
+        <p class="who">Google review · Nursery owner</p>
+      </div>
+      <div class="rev-card">
+        <div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div>
+        <p class="quote">"Well-organized inventory and always in stock. Deliveries arrive on time, every time."</p>
+        <p class="who">Google review · Grower</p>
+      </div>
+      <div class="rev-card">
+        <div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div>
+        <p class="quote">"Quality fertilizers, pots and specialty supplies. Marta and Maria always go the extra mile."</p>
+        <p class="who">Google review · Landscaper</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="brands">
+    <p class="cap">Brands we carry</p>
+    <div class="brand-row">
+      <img src="https://lirp.cdn-website.com/455354d3/dms3rep/multi/opt/VAS+Herbacides+ICL-1920w.png" alt="ICL" onerror="this.remove()">
+      <img src="https://lirp.cdn-website.com/455354d3/dms3rep/multi/opt/Sustane+VAS-1920w.png" alt="Sustane" onerror="this.remove()">
+      <img src="https://lirp.cdn-website.com/455354d3/dms3rep/multi/opt/Florikan+VAS-1920w.png" alt="Florikan" onerror="this.remove()">
+      <img src="https://lirp.cdn-website.com/455354d3/dms3rep/multi/opt/Haviland+VAS-1920w.png" alt="Haviland" onerror="this.remove()">
+      <img src="https://lirp.cdn-website.com/455354d3/dms3rep/multi/opt/Growscape+Pots+VAS-1920w.png" alt="Growscape" onerror="this.remove()">
+      <img src="https://lirp.cdn-website.com/455354d3/dms3rep/multi/opt/PoppleMan+Pots+VAS-1920w.png" alt="PoppleMan" onerror="this.remove()">
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <div class="fname">VAS Agricultural Supply</div>
+      <div class="faddr">22801 SW 177th Ave, Miami, FL · 341 Cooper Palms Pkwy, Apopka, FL · (305) 246-4225</div>
+    </div>
+    <a class="btn btn-lime" href="#">Get a free quote</a>
+  </footer>
+
+</div>
+
+<p class="mockup-label" style="margin-bottom:32px;">Visual concept — some product and social photos are temporary placeholders, to be replaced with VAS photography.</p>
+
+</body>
+</html>
