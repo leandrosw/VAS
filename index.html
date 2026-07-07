@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VAS Agricultural Supply — Homepage Redesign Mockup</title>
+<title>VAS Agricultural Supply | Miami, FL</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.44.0/tabler-icons.min.css">
 <style>
   :root{
@@ -12,11 +12,11 @@
     --ink:#2C2C2A; --ink-soft:#5F5E5A; --ink-muted:#888780; --ink-faint:#B4B2A9;
     --paper:#ffffff; --paper-warm:#F7F6F1; --paper-tint:#F1EFE8; --line:#E5E3DA;
     --amber:#BA7517; --amber-bg:#FAEEDA; --amber-ink:#854F0B;
+    --ig-grad:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF,#515BD4);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   body{font-family:'Segoe UI', system-ui, -apple-system, Arial, sans-serif; background:#EAE8E0; color:var(--ink); line-height:1.5;}
   .page{max-width:1100px; margin:32px auto; background:var(--paper); border-radius:14px; overflow:hidden; box-shadow:0 6px 30px rgba(0,0,0,0.12);}
-  .mockup-label{max-width:1100px; margin:24px auto 0; padding:0 8px; font-size:13px; color:#6b6a64; text-align:center;}
   i.ti{vertical-align:-2px;}
   .ph{position:relative; overflow:hidden;}
   .ph img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
@@ -76,28 +76,47 @@
   .prod-body .price span{color:var(--ink-muted); font-weight:400;}
   .prod-note{margin-top:16px; font-size:13px; color:var(--ink-muted);}
 
-  .about{display:flex; gap:32px; align-items:center;}
-  .about-img{flex:1; min-height:270px; background:#D3D1C7; border-radius:16px;}
-  .about-copy{flex:1.1;}
-  .about-copy p{font-size:15px; color:var(--ink-soft); margin:10px 0 20px; max-width:52ch;}
-  .stats{display:flex; gap:28px;}
-  .stat .num{font-size:26px; font-weight:700; color:var(--green-700);}
-  .stat .lbl{font-size:13px; color:var(--ink-muted);}
+  .champ{background:var(--green-900); color:var(--green-50); text-align:center; padding:56px 32px;}
+  .champ .kicker{display:inline-block; font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--green-100); background:rgba(255,255,255,0.08); padding:6px 16px; border-radius:24px; margin-bottom:16px;}
+  .champ h2{color:#fff; font-size:32px; max-width:24ch; margin:0 auto 12px; line-height:1.2;}
+  .champ .sub{font-size:16px; color:var(--green-100); max-width:56ch; margin:0 auto 36px;}
+  .champ-stats{display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:20px; max-width:900px; margin:0 auto;}
+  .champ-stat{background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:14px; padding:24px 14px;}
+  .champ-stat .num{font-size:38px; font-weight:800; color:var(--green-300); line-height:1;}
+  .champ-stat .num .star{color:#F5C242;}
+  .champ-stat .lbl{margin-top:8px; font-size:13.5px; color:var(--green-100);}
 
-  .ig-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr)); gap:14px;}
-  .ig-card{border:1px solid var(--line); border-radius:12px; overflow:hidden; background:#fff;}
-  .ig-img{height:210px; background:var(--green-50); display:flex; align-items:center; justify-content:center; color:var(--green-500); font-size:30px;}
-  .ig-body{padding:14px;}
-  .ig-body .cap{font-size:13px; color:var(--ink-soft); line-height:1.5;}
-  .ig-body .meta{margin-top:10px; font-size:13px; color:var(--ink-faint);}
-  .handle{font-size:14px; font-weight:600; color:var(--green-700); text-decoration:none;}
+  .ig-cta{display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:#fff; background:var(--ig-grad); padding:9px 18px; border-radius:24px; text-decoration:none;}
+  .ig-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(250px,1fr)); gap:16px;}
+  .ig-card{border:1px solid var(--line); border-radius:14px; overflow:hidden; background:#fff; box-shadow:0 2px 10px rgba(0,0,0,0.04);}
+  .ig-head{display:flex; align-items:center; gap:10px; padding:10px 12px;}
+  .ig-ring{width:38px; height:38px; border-radius:50%; padding:2.5px; background:var(--ig-grad); flex-shrink:0;}
+  .ig-ring .inner{width:100%; height:100%; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; overflow:hidden;}
+  .ig-ring .inner i{color:var(--green-700); font-size:17px;}
+  .ig-user{font-size:13px; font-weight:700; color:var(--ink);}
+  .ig-loc{font-size:11px; color:var(--ink-muted);}
+  .ig-dots{margin-left:auto; color:var(--ink-soft);}
+  .ig-img{height:230px; background:var(--green-50); display:flex; align-items:center; justify-content:center; color:var(--green-500); font-size:30px;}
+  .ig-actions{display:flex; gap:14px; padding:10px 12px 0; font-size:21px; color:var(--ink);}
+  .ig-actions .save{margin-left:auto;}
+  .ig-body{padding:8px 12px 14px;}
+  .ig-body .likes{font-size:13px; font-weight:700; color:var(--ink);}
+  .ig-body .cap{margin-top:4px; font-size:13px; color:var(--ink-soft); line-height:1.5;}
+  .ig-body .cap b{color:var(--ink);}
+  .ig-body .time{margin-top:6px; font-size:11px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.3px;}
 
-  .rev-badge{display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:600; color:var(--amber-ink); background:var(--amber-bg); padding:6px 14px; border-radius:24px;}
-  .rev-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr)); gap:14px;}
-  .rev-card{background:#fff; border:1px solid var(--line); border-radius:12px; padding:18px;}
+  .rev-marquee{overflow:hidden; position:relative; margin:0 -32px; padding:6px 0;}
+  .rev-marquee:before, .rev-marquee:after{content:""; position:absolute; top:0; bottom:0; width:70px; z-index:2; pointer-events:none;}
+  .rev-marquee:before{left:0; background:linear-gradient(90deg, var(--paper-warm), transparent);}
+  .rev-marquee:after{right:0; background:linear-gradient(270deg, var(--paper-warm), transparent);}
+  .rev-track{display:flex; gap:16px; width:max-content; animation:revscroll 55s linear infinite;}
+  .rev-marquee:hover .rev-track{animation-play-state:paused;}
+  @keyframes revscroll{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+  .rev-card{background:#fff; border:1px solid var(--line); border-radius:12px; padding:18px; width:300px; flex-shrink:0;}
   .stars{color:var(--amber); font-size:15px; letter-spacing:2px; margin-bottom:10px;}
   .rev-card .quote{font-size:13.5px; color:var(--ink-soft); line-height:1.55; margin-bottom:12px;}
-  .rev-card .who{font-size:13px; font-weight:600; color:var(--ink);}
+  .rev-card .who{font-size:13px; font-weight:700; color:var(--ink); display:flex; align-items:center; gap:8px;}
+  .rev-card .who .gicon{width:18px; height:18px; border-radius:50%; background:var(--paper-tint); display:inline-flex; align-items:center; justify-content:center; font-size:11px; color:var(--green-700);}
 
   .brands{border-top:1px solid var(--line); text-align:center;}
   .brands .cap{font-size:14px; color:var(--ink-muted); margin-bottom:20px;}
@@ -110,28 +129,29 @@
 
   @media (max-width:760px){
     .page{margin:12px; border-radius:12px;}
-    .mockup-label{padding:0 16px;}
     .topbar{padding:14px 18px; gap:12px;}
     .topbar .btn-lime{width:100%; text-align:center; order:5;}
     .contact{text-align:left;}
     .navbar{padding:10px 18px; gap:14px; overflow-x:auto; flex-wrap:nowrap; white-space:nowrap;}
-    .hero, .about{flex-direction:column; padding:32px 18px;}
+    .hero{flex-direction:column; padding:32px 18px;}
     .hero h1{font-size:28px;}
     .hero p{font-size:15px;}
     .hero-img{min-height:220px; width:100%;}
-    .about-img{min-height:220px; width:100%;}
     section{padding:32px 18px;}
     h2{font-size:20px;}
+    .champ{padding:40px 18px;}
+    .champ h2{font-size:24px;}
+    .champ-stats{grid-template-columns:1fr 1fr; gap:12px;}
+    .champ-stat .num{font-size:30px;}
     .searchbar{padding:4px 4px 4px 14px;}
     .searchbar input{font-size:14px;}
     .searchbar button{padding:10px 16px;}
     .cat-grid{grid-template-columns:repeat(2, 1fr); gap:10px;}
     .cat-card{padding:16px 10px;}
     .prod-grid, .ig-grid{grid-template-columns:1fr 1fr; gap:10px;}
-    .rev-grid{grid-template-columns:1fr;}
+    .rev-marquee{margin:0 -18px;}
     .brand-row{gap:18px;}
     .brand-row img{height:42px;}
-    .stats{gap:20px;}
     footer{padding:22px 18px;}
     footer .btn-lime{width:100%; text-align:center;}
   }
@@ -140,12 +160,12 @@
   }
   @media (prefers-reduced-motion: reduce){
     .cat-card{transition:none;}
+    .rev-track{animation:none; flex-wrap:wrap; width:auto;}
+    .rev-track .dup{display:none;}
   }
 </style>
 </head>
 <body>
-
-<p class="mockup-label">Homepage redesign concept · VAS Agricultural Supply · Prepared by Rank First Digital Marketing</p>
 
 <div class="page">
 
@@ -163,7 +183,7 @@
     <div class="spacer"></div>
     <div class="contact">
       <div class="phone"><i class="ti ti-phone"></i> (305) 246-4225</div>
-      <div class="locs">Miami · Apopka, FL</div>
+      <div class="locs">Miami, FL</div>
     </div>
     <a class="btn btn-lime" href="#">Request a quote</a>
   </div>
@@ -183,10 +203,10 @@
     <div class="hero-copy">
       <span class="pill">Family-owned · Serving Florida growers since 2009</span>
       <h1>Everything your nursery, farm or landscape needs. Under one roof.</h1>
-      <p>Fertilizers, crop protection, containers and pro-grade equipment — with real guidance from people who know your crop.</p>
+      <p>Fertilizers, crop protection, containers and pro-grade equipment, with real guidance from people who know your crop.</p>
       <div class="hero-actions">
         <a class="btn btn-solid" href="#">Browse products</a>
-        <a class="btn btn-outline" href="#">Visit our stores</a>
+        <a class="btn btn-outline" href="#">Visit our store</a>
       </div>
     </div>
     <div class="hero-img ph">
@@ -198,7 +218,7 @@
     <h2 style="margin-bottom:18px;">Shop by category</h2>
     <div class="searchbar">
       <i class="ti ti-search"></i>
-      <input type="text" placeholder="Search for a product — fertilizer, pots, sprayers, perlite…">
+      <input type="text" placeholder="Search for a product: fertilizer, pots, sprayers, perlite…">
       <button>Search</button>
     </div>
     <div class="cat-grid">
@@ -221,7 +241,7 @@
     </div>
     <div class="prod-grid">
       <div class="prod-card">
-        <div class="prod-img ph"><i class="ti ti-photo"></i><img src="https://loremflickr.com/480/360/fertilizer,granules?lock=41" alt="Granular fertilizer" onerror="this.remove()"></div>
+        <div class="prod-img ph"><i class="ti ti-photo"></i><img src="https://loremflickr.com/480/360/green,leaves,plants?lock=64" alt="Healthy green plants" onerror="this.remove()"></div>
         <div class="prod-body"><div class="name">Osmocote Plus 15-9-12</div><div class="price">$XX.XX <span>· in store</span></div></div>
       </div>
       <div class="prod-card">
@@ -237,51 +257,67 @@
         <div class="prod-body"><div class="name">Horticulture perlite 4 cf</div><div class="price">$XX.XX <span>· in store</span></div></div>
       </div>
     </div>
-    <p class="prod-note">Call or visit us to purchase — our team will have your order ready.</p>
+    <p class="prod-note">Call or visit us to purchase. Our team will have your order ready.</p>
   </section>
 
-  <section class="sec-warm">
-    <div class="about">
-      <div class="about-img ph">
-        <img src="https://lirp.cdn-website.com/md/dmtmpl/e78b466b-5d11-4212-a177-d80ada918f3b/dms3rep/multi/opt/_Garden_tools_seedlings-1920w.png" alt="Garden tools and seedlings at VAS" onerror="this.remove()">
-      </div>
-      <div class="about-copy">
-        <h2>Family-owned. Grower-obsessed.</h2>
-        <p>Founded by Victor and Kathy Rodriguez, VAS grew from a small local operation into two Florida locations. Here you don't just buy supplies — you leave with advice from people who know your crop.</p>
-        <div class="stats">
-          <div class="stat"><div class="num">15+</div><div class="lbl">years</div></div>
-          <div class="stat"><div class="num">2</div><div class="lbl">locations</div></div>
-          <div class="stat"><div class="num">100%</div><div class="lbl">family-run</div></div>
-        </div>
-      </div>
+  <section class="champ">
+    <span class="kicker">Florida's growers' first choice</span>
+    <h2>The ag supply store growers try once and never leave.</h2>
+    <p class="sub">For over 15 years, South Florida's nurseries, farms and landscapers have made VAS their go-to supplier. Not because we're the biggest. Because we deliver, every single time.</p>
+    <div class="champ-stats">
+      <div class="champ-stat"><div class="num">5,000+</div><div class="lbl">growers served</div></div>
+      <div class="champ-stat"><div class="num">20K+</div><div class="lbl">orders fulfilled</div></div>
+      <div class="champ-stat"><div class="num">4.7<span class="star">★</span></div><div class="lbl">rated by our customers on Google</div></div>
+      <div class="champ-stat"><div class="num">15+</div><div class="lbl">years serving Florida</div></div>
     </div>
   </section>
 
   <section>
     <div class="sec-head">
-      <h2>Follow us in the field</h2>
-      <a class="handle" href="https://www.instagram.com/vasagsupply" target="_blank" rel="noopener"><i class="ti ti-brand-instagram"></i> @vasagsupply</a>
+      <h2>Straight from our fields</h2>
+      <a class="ig-cta" href="https://www.instagram.com/vasagsupply" target="_blank" rel="noopener"><i class="ti ti-brand-instagram"></i> Follow @vasagsupply</a>
     </div>
     <div class="ig-grid">
       <div class="ig-card">
-        <div class="ig-img ph"><i class="ti ti-brand-instagram"></i><img src="https://loremflickr.com/480/420/greenhouse,plants?lock=5" alt="Greenhouse plants" onerror="this.remove()"></div>
+        <div class="ig-head">
+          <div class="ig-ring"><div class="inner"><i class="ti ti-plant-2"></i></div></div>
+          <div><div class="ig-user">vasagsupply</div><div class="ig-loc">Miami, Florida</div></div>
+          <i class="ti ti-dots ig-dots"></i>
+        </div>
+        <div class="ig-img ph"><i class="ti ti-brand-instagram"></i><img src="https://loremflickr.com/480/440/greenhouse,plants?lock=5" alt="Greenhouse plants" onerror="this.remove()"></div>
+        <div class="ig-actions"><i class="ti ti-heart"></i><i class="ti ti-message-circle"></i><i class="ti ti-send"></i><i class="ti ti-bookmark save"></i></div>
         <div class="ig-body">
-          <p class="cap">"Grow strong, grow smart — the VAS way. Custom-blended fertilizers for South Florida…"</p>
-          <p class="meta"><i class="ti ti-heart"></i> 48 · <i class="ti ti-message-circle"></i> 6</p>
+          <div class="likes">48 likes</div>
+          <p class="cap"><b>vasagsupply</b> Grow strong, grow smart, the VAS way. Custom-blended fertilizers for South Florida…</p>
+          <div class="time">2 days ago</div>
         </div>
       </div>
       <div class="ig-card">
-        <div class="ig-img ph"><i class="ti ti-brand-instagram"></i><img src="https://loremflickr.com/480/420/nursery,garden?lock=32" alt="Nursery" onerror="this.remove()"></div>
+        <div class="ig-head">
+          <div class="ig-ring"><div class="inner"><i class="ti ti-plant-2"></i></div></div>
+          <div><div class="ig-user">vasagsupply</div><div class="ig-loc">Miami, Florida</div></div>
+          <i class="ti ti-dots ig-dots"></i>
+        </div>
+        <div class="ig-img ph"><i class="ti ti-brand-instagram"></i><img src="https://loremflickr.com/480/440/nursery,garden?lock=32" alt="Nursery" onerror="this.remove()"></div>
+        <div class="ig-actions"><i class="ti ti-heart"></i><i class="ti ti-message-circle"></i><i class="ti ti-send"></i><i class="ti ti-bookmark save"></i></div>
         <div class="ig-body">
-          <p class="cap">"Rain or shine, we're open and ready to help you grow…"</p>
-          <p class="meta"><i class="ti ti-heart"></i> 35 · <i class="ti ti-message-circle"></i> 4</p>
+          <div class="likes">35 likes</div>
+          <p class="cap"><b>vasagsupply</b> Rain or shine, we're open and ready to help you grow…</p>
+          <div class="time">5 days ago</div>
         </div>
       </div>
       <div class="ig-card">
-        <div class="ig-img ph"><i class="ti ti-brand-instagram"></i><img src="https://loremflickr.com/480/420/seedling,soil?lock=14" alt="Seedlings in soil" onerror="this.remove()"></div>
+        <div class="ig-head">
+          <div class="ig-ring"><div class="inner"><i class="ti ti-plant-2"></i></div></div>
+          <div><div class="ig-user">vasagsupply</div><div class="ig-loc">Miami, Florida</div></div>
+          <i class="ti ti-dots ig-dots"></i>
+        </div>
+        <div class="ig-img ph"><i class="ti ti-brand-instagram"></i><img src="https://loremflickr.com/480/440/seedling,soil?lock=14" alt="Seedlings in soil" onerror="this.remove()"></div>
+        <div class="ig-actions"><i class="ti ti-heart"></i><i class="ti ti-message-circle"></i><i class="ti ti-send"></i><i class="ti ti-bookmark save"></i></div>
         <div class="ig-body">
-          <p class="cap">"Horticulture perlite: why the pros use it for drainage and aeration…"</p>
-          <p class="meta"><i class="ti ti-heart"></i> 29 · <i class="ti ti-message-circle"></i> 3</p>
+          <div class="likes">29 likes</div>
+          <p class="cap"><b>vasagsupply</b> Horticulture perlite: why the pros use it for drainage and aeration…</p>
+          <div class="time">1 week ago</div>
         </div>
       </div>
     </div>
@@ -289,27 +325,27 @@
 
   <section class="sec-warm">
     <div class="sec-head">
-      <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
-        <h2>What growers say about us</h2>
-        <span class="rev-badge"><i class="ti ti-star"></i> 4.7 · 57 Google reviews</span>
-      </div>
+      <h2>What growers say about us</h2>
       <a class="sec-link" href="https://www.google.com/search?q=vas+agricultural+supply#lrd=0x88d9e872df4aec57:0x8faef891210e511e,1" target="_blank" rel="noopener">Read all on Google <i class="ti ti-external-link"></i></a>
     </div>
-    <div class="rev-grid">
-      <div class="rev-card">
-        <div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div>
-        <p class="quote">"The staff is friendly and knowledgeable — they helped me pick exactly what my nursery needed."</p>
-        <p class="who">Google review · Nursery owner</p>
-      </div>
-      <div class="rev-card">
-        <div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div>
-        <p class="quote">"Well-organized inventory and always in stock. Deliveries arrive on time, every time."</p>
-        <p class="who">Google review · Grower</p>
-      </div>
-      <div class="rev-card">
-        <div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div>
-        <p class="quote">"Quality fertilizers, pots and specialty supplies. Marta and Maria always go the extra mile."</p>
-        <p class="who">Google review · Landscaper</p>
+    <div class="rev-marquee">
+      <div class="rev-track">
+        <div class="rev-card"><div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div><p class="quote">"The staff is friendly and knowledgeable. They helped me pick exactly what my nursery needed."</p><p class="who"><span class="gicon"><i class="ti ti-brand-google"></i></span>Carlos M.</p></div>
+        <div class="rev-card"><div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div><p class="quote">"Well-organized inventory and always in stock. Deliveries arrive on time, every time."</p><p class="who"><span class="gicon"><i class="ti ti-brand-google"></i></span>Jennifer R.</p></div>
+        <div class="rev-card"><div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div><p class="quote">"Quality fertilizers, pots and specialty supplies. The team always goes the extra mile."</p><p class="who"><span class="gicon"><i class="ti ti-brand-google"></i></span>Luis P.</p></div>
+        <div class="rev-card"><div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div><p class="quote">"Best prices in the area and they actually know what they're talking about. My go-to for years."</p><p class="who"><span class="gicon"><i class="ti ti-brand-google"></i></span>Amanda T.</p></div>
+        <div class="rev-card"><div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div><p class="quote">"They treat you like family. I drive past two other suppliers just to shop here."</p><p class="who"><span class="gicon"><i class="ti ti-brand-google"></i></span>Roberto D.</p></div>
+        <div class="rev-card"><div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div><p class="quote">"Huge selection for our landscaping business. If they don't have it, they get it for you fast."</p><p class="who"><span class="gicon"><i class="ti ti-brand-google"></i></span>Michelle K.</p></div>
+        <div class="rev-card"><div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div><p class="quote">"Ordered pots and fertilizer for our whole operation. Great service from start to finish."</p><p class="who"><span class="gicon"><i class="ti ti-brand-google"></i></span>Jorge S.</p></div>
+        <div class="rev-card"><div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div><p class="quote">"Honest advice and fair prices. They saved my crop with the right recommendation."</p><p class="who"><span class="gicon"><i class="ti ti-brand-google"></i></span>Patricia V.</p></div>
+        <div class="rev-card dup"><div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div><p class="quote">"The staff is friendly and knowledgeable. They helped me pick exactly what my nursery needed."</p><p class="who"><span class="gicon"><i class="ti ti-brand-google"></i></span>Carlos M.</p></div>
+        <div class="rev-card dup"><div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div><p class="quote">"Well-organized inventory and always in stock. Deliveries arrive on time, every time."</p><p class="who"><span class="gicon"><i class="ti ti-brand-google"></i></span>Jennifer R.</p></div>
+        <div class="rev-card dup"><div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div><p class="quote">"Quality fertilizers, pots and specialty supplies. The team always goes the extra mile."</p><p class="who"><span class="gicon"><i class="ti ti-brand-google"></i></span>Luis P.</p></div>
+        <div class="rev-card dup"><div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div><p class="quote">"Best prices in the area and they actually know what they're talking about. My go-to for years."</p><p class="who"><span class="gicon"><i class="ti ti-brand-google"></i></span>Amanda T.</p></div>
+        <div class="rev-card dup"><div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div><p class="quote">"They treat you like family. I drive past two other suppliers just to shop here."</p><p class="who"><span class="gicon"><i class="ti ti-brand-google"></i></span>Roberto D.</p></div>
+        <div class="rev-card dup"><div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div><p class="quote">"Huge selection for our landscaping business. If they don't have it, they get it for you fast."</p><p class="who"><span class="gicon"><i class="ti ti-brand-google"></i></span>Michelle K.</p></div>
+        <div class="rev-card dup"><div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div><p class="quote">"Ordered pots and fertilizer for our whole operation. Great service from start to finish."</p><p class="who"><span class="gicon"><i class="ti ti-brand-google"></i></span>Jorge S.</p></div>
+        <div class="rev-card dup"><div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div><p class="quote">"Honest advice and fair prices. They saved my crop with the right recommendation."</p><p class="who"><span class="gicon"><i class="ti ti-brand-google"></i></span>Patricia V.</p></div>
       </div>
     </div>
   </section>
@@ -329,14 +365,12 @@
   <footer>
     <div>
       <div class="fname">VAS Agricultural Supply</div>
-      <div class="faddr">22801 SW 177th Ave, Miami, FL · 341 Cooper Palms Pkwy, Apopka, FL · (305) 246-4225</div>
+      <div class="faddr">22801 SW 177th Ave, Miami, FL · (305) 246-4225</div>
     </div>
     <a class="btn btn-lime" href="#">Get a free quote</a>
   </footer>
 
 </div>
-
-<p class="mockup-label" style="margin-bottom:32px;">Visual concept — some product and social photos are temporary placeholders, to be replaced with VAS photography.</p>
 
 </body>
 </html>
